@@ -47,6 +47,18 @@ app.get('/books/:id', (req, res) => {
     }
 });
 
+
+// // === POST ===
+
+// POST /books: Een nieuw boek toevoegen
+app.post('/books', (req, res) => {
+    const newBook = req.body;
+    books.push(newBook);
+    res.status(201).json(newBook);
+});
+
+
+
 // Start server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
