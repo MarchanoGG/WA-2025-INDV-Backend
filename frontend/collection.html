@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/collection.css">
+    <title>Collectie - Scifi Book Collector</title>
+</head>
+<body>
+    <header class="header">
+        <h2 class="header__logo">
+            📚 Scifi Book Collector
+        </h2>
+        <button class="header__toggle" aria-label="Menu openen">
+            Menu &#9776;
+        </button>
+        <nav class="header__menu">
+            <a class="header__menuitem" href="index.html">Home</a>
+            <a class="header__menuitem header__menuitem-active" href="collection.html">Collectie</a>
+            <a class="header__menuitem" href="information.html">Informatie</a>
+        </nav>
+    </header>
+
+
+
+    <div class="collection spacing">
+        <div class="collection__container container">
+            <h1 class="collection__title">Boeken collectie</h1>
+            
+            <h2 class="collection__filter-title">Sorteer</h2>
+            <div class="collection__filters" id="collection__filters">
+
+                <!-- Attribuut -->
+                <div class="collection-filter__dropdown" id="collection-filter__attribute">
+                    <select name="attributes" id="attributes">
+                        <option value="title">Titel</option>
+                        <option value="author">Auteur</option>
+                        <option value="rating">Cijfer</option>
+                    </select>
+                </div>
+
+                <!-- Richting -->
+                <div class="collection-filter__dropdown" id="collection-filter__direction">
+                    <select name="direction" id="direction">
+                        <option value="asc">Oplopend</option>
+                        <option value="desc">Aflopend</option>
+                    </select>
+                </div>
+
+                <!-- Hoeveelheid boeken per pagina -->
+                <div class="collection-filter__amount" id="collection-filter__amount">
+                    <input type="number" id="amount" name="amount" min="1" max="50" value="5">
+                    <label for="amount">boeken per pagina</label>
+                </div>
+
+                <!-- Toepassen Button -->
+                <button class="collection-filter__apply" id="collection-filter__apply">Filter Toepassen</button>
+
+            </div>
+
+            <div id="collection__books">
+                <!-- Boeken worden hier gerenderd met JS. Niks in plaatsen want het word weer geleegd door de JS -->
+            </div>
+
+            <div id="collection__paging">
+                <!-- Pagina nummers worden hier gerenderd met JS. Niks in plaatsen want het word weer geleegd door de JS -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <footer class="footer">
+        <p>24/25 Webapplications SPR-DT_SEM2</p>
+        <p> Marchano Gopal (23044039)</p>
+    </footer>
+
+    <script src="js/books.js"></script> <!-- De books.js als eerst toevoegen zodat het globaal toegankelijk is -->
+    <script src="js/header.js"></script>
+    <script src="js/collection.js"></script>
+</body>
+</html>
