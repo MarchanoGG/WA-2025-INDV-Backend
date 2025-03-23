@@ -1,6 +1,24 @@
 // Welbekende stuk code dat wacht tot de DOM is ingeladen. in dit geval wachten we voordat we de boeken inladen.
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", async function() {
 
+    try {
+        // Haal de boeken op van de backend (URL is hardcoded)
+        const response = await fetch('http://localhost:3000/books');
+        const books = await response.json();
+
+        // Zodra de boeken zijn opgehaald, roep de render- en pagineringsfuncties aan
+        renderBooks(books);
+        applyPagination(5);
+
+        // Indien van toepassing: voeg hier ook de sorteerfunctionaliteit toe
+        const applyButton = document.getElementById("collection-filter__apply");
+        applyButton.addEventListener("click", function() {
+            applySorting(books);
+        });
+
+    } catch (error) {
+        console.error('Fout bij het ophalen van de boeken:', error);
+    }
 
     // Simpele functie dat de boeken zal 'renderen' binnen de collection__books div. 
     function renderBooks(books) { // <-- de 'books' parameter zal worden opgehaald vanuit de books.js
