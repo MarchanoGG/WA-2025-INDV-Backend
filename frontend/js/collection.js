@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async function() {
         renderBooks(books);
         applyPagination(5);
 
-        // Indien van toepassing: voeg hier ook de sorteerfunctionaliteit toe
+        // Forteerfunctionaliteit 
         const applyButton = document.getElementById("collection-filter__apply");
         applyButton.addEventListener("click", function() {
             applySorting(books);
