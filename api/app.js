@@ -36,6 +36,17 @@ app.get('/books', (req, res) => {
     res.status(200).json(books);
 });
 
+// GET /books/{id} Een specifieke boek ophalen
+app.get('/books/:id', (req, res) => {
+    const bookId = parseInt(req.params.id);
+    const book = books.find(b => b.id === bookId);
+    if (book) {
+        res.status(200).json(book);
+    } else {
+        res.status(404).json({ message: "Book not found" });
+    }
+});
+
 // Start server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
