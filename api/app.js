@@ -73,6 +73,20 @@ app.put('/books/:id', (req, res) => {
 });
 
 
+// === DELETE ===
+
+// DELETE /books/{id} Een boek verwijderen
+app.delete('/books/:id', (req, res) => {
+    const bookId = parseInt(req.params.id);
+    const index = books.findIndex(b => b.id === bookId);
+    if (index !== -1) {
+        const removedBook = books.splice(index, 1);
+        res.status(200).json({ message: "Book deleted", book: removedBook });
+    } else {
+        res.status(404).json({ message: "Book not found" });
+    }
+})
+
 // Start server
 app.listen(port, () => {
     console.log(`Server running on http://localhost:${port}`);
