@@ -48,7 +48,7 @@ app.get('/books/:id', (req, res) => {
 });
 
 
-// // === POST ===
+// === POST ===
 
 // POST /books: Een nieuw boek toevoegen
 app.post('/books', (req, res) => {
@@ -57,6 +57,20 @@ app.post('/books', (req, res) => {
     res.status(201).json(newBook);
 });
 
+
+// === PUT ===
+
+// PUT /books/{id} Een bestaand boek bijwerken
+app.put('/books/:id', (req, res) => {
+    const bookId = parseInt(req.params.id);
+    const index = books.findIndex(b => b.id === bookId);
+    if (index !== -1) {
+        books[index] = req.body;
+        res.status(200).json(books[index]);
+    } else {
+        res.status(404).json({ message: "Book not found" });
+    }
+});
 
 
 // Start server
