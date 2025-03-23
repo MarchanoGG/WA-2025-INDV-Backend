@@ -29,6 +29,12 @@ let books = [
     { id: 16, title: "The Space Between Worlds", author: "Micaiah Johnson", image: "the_space_between_worlds.jpg", rating: 4 }
 ];
 
+// === GET ===
+
+// GET /books: Alle boeken ophalen
+app.get('/books', (req, res) => {
+    res.status(200).json(books);
+});
 
 // Start server
 app.listen(port, () => {
